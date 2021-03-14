@@ -1,0 +1,20 @@
+{
+  "name": "microfrontend-lerna-module-federation",
+  "version": "0.0.0",
+  "scripts": {
+    "clean": "npx lerna clean -y && npx lerna run clean && rm -rf build node_modules",
+    "develop": "WITH_MULTI_REMOTES=1 NODE_ENV=development npx lerna run develop --parallel",
+    "single:build": "npx lerna run build --parallel && rm -rf build && mkdir -p build && cp packages/*/build/*.* build",
+    "single:start": "ws -d build --spa index.html --port 8080 -z",
+    "multi:build": "WITH_MULTI_REMOTES=1 npx lerna run build --parallel",
+    "multi:start": "npx lerna run start --parallel"
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "author": "Michal Zalecki <michal@michalzalecki.com>",
+  "dependencies": {
+    "lerna": "4.0.0"
+  }
+}

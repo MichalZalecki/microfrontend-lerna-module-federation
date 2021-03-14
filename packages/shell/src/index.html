@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <% if (withMultiRemotes) { %>
+    <script src="http://localhost:8081/billingRemoteEntry.js" defer></script>
+    <script src="http://localhost:8082/productsRemoteEntry.js" defer></script>
+    <% } else { %>
+    <script src="/billingRemoteEntry.js" defer></script>
+    <script src="/productsRemoteEntry.js" defer></script>
+    <% } %>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
